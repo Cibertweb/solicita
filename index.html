@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cibertweb - Tecnología Salvaje</title>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons @1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background-color: #0A1F3C;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80 ') no-repeat center center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .hero button {
+      background: #00FFB3;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #00cc99;
+    }
+
+    /* Sección Sobre Nosotros */
+    .about {
+      padding: 60px 20px;
+      background: #001529;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #00FFB3;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+    /* Sección Servicios */
+    .services {
+      padding: 60px 20px;
+      background: #0A1F3C;
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #00FFB3;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: #112233;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 40px;
+      color: #00FFB3;
+      margin-bottom: 15px;
+      display: block;
+      text-align: center;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #00FFB3;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #bbb;
+      text-align: center;
+    }
+
+    /* Sección Contacto */
+    .contact {
+      padding: 60px 20px;
+      background: #001529;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #00FFB3;
+    }
+
+    .contact p {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+      grid-column: span 2;
+    }
+
+    .btn-whatsapp {
+      grid-column: span 2;
+      background: #25D366;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 18px 30px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebd58;
+      transform: translateY(-2px);
+    }
+
+    /* Estilo del logo */
+.logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 20px; /* Esquinas redondeadas */
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+    /* Footer */
+    footer {
+      background: #0A1F3C;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .service-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <!-- Logo -->
+    <center><img src="cibert.jpg" alt="Logo Cibertweb" class="logo"></center>
+
+      <h1>Tecnología Salvaje. Hecha para Empresas Inteligentes.</h1>
+      <p>En Cibertweb fusionamos la inteligencia de la naturaleza con la precisión del futuro para llevar tu empresa al siguiente nivel.</p>
+      <a href="https://www.instagram.com/cibertweb/"><button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">👉 Descubre cómo ayudamos a tu empresa</button></a>
+    </div>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section class="about">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      En un mundo donde la evolución marca la diferencia, Cibertweb surge como el puente entre lo natural y lo tecnológico.
+      Inspirados en los sistemas más eficientes de la naturaleza, creamos soluciones digitales adaptativas, escalables y poderosas para empresas que no temen liderar su industria.
+    </p>
+  </section>
+
+  <!-- Servicios -->
+  <section class="services">
+    <h2>Nuestros Servicios</h2>
+    <div class="service-cards">
+      <div class="card">
+        <i class="bi bi-bar-chart"></i>
+        <h3>Análisis de Datos</h3>
+        <p>Como el búho, vemos más allá. Extraemos insights valiosos de tus datos para tomar decisiones inteligentes.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-gear-wide-connected"></i>
+        <h3>Automatización</h3>
+        <p>Con la precisión del lobo, optimizamos tu operación y eliminamos tareas repetitivas.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-laptop"></i>
+        <h3>Desarrollo Web</h3>
+        <p>Como el castor, construimos plataformas sólidas, funcionales y atractivas para tu negocio.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-bullseye"></i>
+        <h3>Estrategia Digital</h3>
+        <p>Al igual que el águila, tenemos visión amplia. Creamos estrategias digitales ganadoras.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-shuffle"></i>
+        <h3>Adaptabilidad Tecnológica</h3>
+        <p>Como el zorro, nos ajustamos a cualquier entorno. Soluciones flexibles para cada industria.</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-arrow-up-circle"></i>
+        <h3>Escalabilidad</h3>
+        <p>Como el ciervo, crecemos rápido y seguro. Hacemos que tu infraestructura crezca contigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact" id="contact">
+    <h2>Agenda una Consulta Gratuita</h2>
+    <p>¿Tu empresa está lista para evolucionar?</p>
+    <form onsubmit="enviarWhatsApp(event)">
+      <input type="text" name="nombre" placeholder="Nombre completo" required/>
+      <input type="email" name="email" placeholder="Correo electrónico" required/>
+      <input type="tel" name="telefono" placeholder="Teléfono"/>
+      <textarea name="mensaje" rows="4" placeholder="Mensaje"></textarea>
+      <button type="submit" class="btn-whatsapp">Enviar Consulta por WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Cibertweb – Tecnología Salvaje. Todos los derechos reservados.<br/>
+    <a href="#">www.cibertweb.com</a> | <a href="#">#TecnologíaSalvaje</a>
+  </footer>
+
+  <!-- Script para enviar WhatsApp -->
+  <script>
+    function enviarWhatsApp(event) {
+      event.preventDefault();
+
+      const nombre = document.querySelector("input[name='nombre']").value;
+      const email = document.querySelector("input[name='email']").value;
+      const telefono = document.querySelector("input[name='telefono']").value;
+      const mensaje = document.querySelector("textarea[name='mensaje']").value;
+
+      const texto = `
+*Consulta desde Cibertweb*
+Nombre: ${nombre}
+Email: ${email}
+Teléfono: ${telefono}
+Mensaje: ${mensaje}
+      `.trim();
+
+      const url = `https://wa.me/18496561887?text= ${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+
+      // Limpiar campos del formulario
+      document.querySelector("input[name='nombre']").value = '';
+      document.querySelector("input[name='email']").value = '';
+      document.querySelector("input[name='telefono']").value = '';
+      document.querySelector("textarea[name='mensaje']").value = '';
+    }
+  </script>
+
+</body>
+</html>
